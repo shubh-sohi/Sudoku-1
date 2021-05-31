@@ -14,16 +14,16 @@ const easy = [
   //Create Variables 
   var timer;
   var timeremaining;
-  var chances; 
-  var selectednum;
-  var selectedtile;
+  var chances; //TODO not using this
+  var selectednum;  //TODO not using this
+  var selectedtile; //TODO not using this
   var disableselect; 
 
   window.onload = function() {
    // run start game function when nutton is clicked. 
    id("start-button").addEventListener("click", startgame);
   }
-  function id(id) {
+  function id(id) { //TODO function with same name at line 126
     return document.getElementById(id);
 }
   function startgame() {
@@ -33,7 +33,7 @@ const easy = [
     else if (id("Difficulty-2").checked) board = medium[0];
     else board = hard[0];
     // set lives to 5 and enable selecting numbers and tiles
-    lives = 5; 
+    lives = 5;  //TODO wrong declaration, not using let or const 
     disableselect= false; 
     id("chances").textContent = 'Chances remaining : ' + lives ; 
     //creates board based on the difficulty
@@ -42,13 +42,13 @@ const easy = [
     startTimer();
     //sets theme based on input
     if (id("Theme-1").checked) {
-      qs("body").classlist.remove("dark");
+      qs("body").classlist.remove("dark");  //TODO never declared classlist? what is it??
     }
     else{
-      qs("body").classlist.add("dark");
+      qs("body").classlist.add("dark"); //TODO never declared classlist? what is it??
     }
     // show numbr container
-    id("number-container"),classlist.remove("hidden");
+    id("number-container"),classlist.remove("hidden");  //TODO never declared classlist? what is it??
   }
     function startTimer() {
       // sets time remaining based on input
@@ -59,9 +59,9 @@ const easy = [
       id("timer").textContent = timeConversion(timeremaining);
       //sets timer to update every second 
       timer = setInterval(function() {
-        timereamining--;
+        timereamining--;    //TODO timeremaing is out of scope here. 
         //if no time remianing end the game
-        if (timeremaining === 0) endGame();
+        if (timeremaining === 0) endGame(); //TODO timeremaing is out of scopr here. 
         id("timer").textContent = timeConversion(timeremaining)
       },1000)
     }
@@ -82,7 +82,7 @@ const easy = [
         for (let i = 0; i < 81, i++;) {
           //create paragraph element
           let tile = document.createElement("p");
-          if(board.charAt(i) != "-"){
+          if(board.charAt(i) != "-"){   //TODO board is out of scope
             //set tile to correct number
             tile.textContent = board.charAt(i);
           } else {
@@ -119,11 +119,11 @@ const easy = [
           id("number-continer").children[i].classList.remove("selected");
         }
         //clear selected variables 
-        selectedTile = null;
-        selectedNum = null;
-    }
+        selectedTile = null;    //TODO never delcare this variable
+        selectedNum = null;     //TODO never delcare this variable
+    }   
     // functions
-    function id(id) {
+    function id(id) {   //TODO function already declared above
         return document.getElementById(id);
     }
     function qs(selector) {
